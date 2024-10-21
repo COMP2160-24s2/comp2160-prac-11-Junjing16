@@ -83,6 +83,18 @@ public class UIManager : MonoBehaviour
 
         // FIXME: Move the crosshair position to the mouse position (in world coordinates)
         // crosshair.position = ...;
+
+        // Log the mouse position to understand what we are getting
+        Debug.Log("Mouse Position in Screen Space: " + mousePos);
+
+        // Convert the screen position to world position using the camera
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane));
+
+        // Set the crosshair position to follow the mouse in world space
+        crosshair.position = new Vector3(mouseWorldPosition.x, crosshair.position.y, mouseWorldPosition.z);
+
+        // Log the crosshair's world position
+        Debug.Log("Crosshair Position in World Space: " + crosshair.position);
     }
 
     private void SelectTarget()
