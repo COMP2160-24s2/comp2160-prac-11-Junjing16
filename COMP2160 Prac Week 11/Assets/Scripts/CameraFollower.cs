@@ -12,11 +12,10 @@ public class CameraFollower : MonoBehaviour
             transform.position = marble.position;
         }
     }
-
     
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;  
+        Gizmos.color = Color.green; 
         Gizmos.DrawWireSphere(transform.position, 0.5f);  
     }
 }

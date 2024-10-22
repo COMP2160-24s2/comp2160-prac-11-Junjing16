@@ -49,7 +49,6 @@ public class MarbleMove : MonoBehaviour
         if (target.HasValue) 
         {
             Vector3 dir = target.Value - rigidbody.position;
-            dir.y = 0;  // ignore y component, as the target and marble are at different heights
 
             if (dir.magnitude < speed * Time.fixedDeltaTime)
             {

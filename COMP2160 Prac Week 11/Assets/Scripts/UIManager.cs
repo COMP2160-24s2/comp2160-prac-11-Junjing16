@@ -83,21 +83,14 @@ public class UIManager : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
         Plane boardPlane = new Plane(Vector3.up, Vector3.zero);
-
-        // FIXME: Move the crosshair position to the mouse position (in world coordinates)
-        // crosshair.position = ...;
-
-        // Log the mouse position to understand what we are getting
+        
         float distance;
         if (boardPlane.Raycast(ray, out distance))
         {
-        // Get the point on the plane where the ray intersects
         Vector3 hitPoint = ray.GetPoint(distance);
         
-        // Set the crosshair's position to the hit point
         crosshair.position = hitPoint;
 
-        // Debugging: Log the crosshair position
         Debug.Log("Crosshair position in world space: " + hitPoint);
         }
     }
